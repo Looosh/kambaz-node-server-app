@@ -9,6 +9,10 @@ import CourseRoutes from "./Kambaz/Courses/routes.js";
 import "dotenv/config";
 import session from "express-session";
 
+import mongoose from "mongoose";
+const CONNECTION_STRING = process.env.DATABASE_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
+mongoose.connect(CONNECTION_STRING);
+
 const app = express();
 
 // Middleware first

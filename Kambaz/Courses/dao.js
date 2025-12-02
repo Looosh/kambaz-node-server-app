@@ -24,6 +24,12 @@ function createCourse(course) {
       (enrollment) => enrollment.course !== courseId
   );}
 
+  function updateCourse(courseId, courseUpdates) {
+  const { courses } = db;
+  const course = courses.find((course) => course._id === courseId);
+  Object.assign(course, courseUpdates);
+  return course;
+}
 
 
   return { 
@@ -31,5 +37,6 @@ function createCourse(course) {
     findCoursesForEnrolledUser,
     createCourse,
     deleteCourse,
+    updateCourse,
    };
 }
